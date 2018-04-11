@@ -14,7 +14,7 @@ public class SectionA {
 	public static void main(String[] args) {
 		
 		SectionA myObj = new SectionA();
-		myObj.openFireFox();
+		//myObj.openFireFox();
 		myObj.clickMarketplaceTrust();
 		myObj.clickBuyingHeader();
 		myObj.clickSellingHeader();
@@ -45,7 +45,16 @@ public class SectionA {
 		passField.sendKeys(pass);
 		WebElement loginButton = ffDriver.findElement(By.cssSelector(".btn"));
 		loginButton.click();
-		
+	}
+	
+	public void logoutUser() {
+		try {
+			WebElement logoutLink = ffDriver.findElement(By.linkText("(Log Out"));
+			logoutLink.click();
+			Thread.sleep(2000);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void clickMyProxibid() {
@@ -55,7 +64,6 @@ public class SectionA {
 				myProxibidLink.click();
 				Thread.sleep(2000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	}
